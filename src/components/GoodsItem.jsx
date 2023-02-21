@@ -24,7 +24,7 @@ function GoodsItem(props) {
               price,
           })
       }>Buy</button>
-        <span className="right price">{price.regularPrice}$</span>
+        <span className="right price">{price.regularPrice}V</span>
     </div>
   </div>
 }
