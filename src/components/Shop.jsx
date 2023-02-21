@@ -33,6 +33,10 @@ function Shop () {
         
     };
     
+    const removeFromBasket = (id) => {
+        const newOrder = order.filter(el => el.offerId !== id);
+        setOrder(newOrder);
+    }
     
     useEffect(function getGoods () {
         fetch(API_URL, {
@@ -47,7 +51,7 @@ function Shop () {
     return <main className="container content">
         <Cart quantity={order.length} handleBasketShow={handleBasketShow}/>
         {loading ? <Preloader/> : <GoodsList goods={goods} addToBasket={addToBasket}/>}
-        {isBasketShow && <BasketList order={order}/>}
+        {isBasketShow && <BasketList order={order} removeFromBasket={removeFromBasket}/>}
     </main>
 }
 

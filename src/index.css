@@ -89,15 +89,40 @@ nav {
   
   border: unset;
   border-radius: 6px;
+
+  animation: show-mobile 500ms ease-in-out;
 }
 
 @media (min-width: 767px) {
   .basket-list {
     top: 10rem;
     bottom: unset;
+    animation: show 500ms ease-in-out;
   }
 }
 
 .basket-delete {
   cursor: pointer;
+}
+
+@keyframes show {
+  from {
+    right: 0;
+    opacity: 0;
+  }
+  to {
+    top: 10rem;
+    opacity: 1;
+  }
+}
+
+@keyframes show-mobile {
+  from {
+    right: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 5rem;
+    opacity: 1;
+  }
 }
