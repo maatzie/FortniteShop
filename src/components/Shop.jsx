@@ -34,7 +34,6 @@ function Shop () {
     };
     
     
-    
     useEffect(function getGoods () {
         fetch(API_URL, {
             headers: {
