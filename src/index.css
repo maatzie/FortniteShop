@@ -52,3 +52,24 @@ nav {
 .price {
   font-size: 1.5rem;
 }
+
+.cart {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0.7rem 1rem;
+  border-radius: 15px;;
+}
+
+@media (min-width: 767px) {
+  .cart {
+    top: 5rem;
+    bottom: unset;
+  }
+}
+
+.cart-quantity {
+
+}
