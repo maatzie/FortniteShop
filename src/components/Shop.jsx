@@ -37,6 +37,21 @@ function Shop () {
         const newOrder = order.filter(el => el.offerId !== id);
         setOrder(newOrder);
     }
+
+    const incQuantity = (itemId) => {
+        const newOrder = order.map((el) => {
+            return el.offerId === itemId ? {...el, quantity: el.quantity + 1} : el;
+        });
+        setOrder(newOrder);
+        console.log("inc");
+    };
+    const decQuantity = (itemId) => {
+        const newOrder = order.map((el) => {
+            return el.offerId === itemId ? {...el, quantity: el.quantity - 1} : el;
+        });
+        console.log("dec");
+        setOrder(newOrder.filter(el => el.quantity > 0));
+    };
     
     useEffect(function getGoods () {
         fetch(API_URL, {
@@ -51,7 +66,10 @@ function Shop () {
     return <main className="container content">
         <Cart quantity={order.length} handleBasketShow={handleBasketShow}/>
         {loading ? <Preloader/> : <GoodsList goods={goods} addToBasket={addToBasket}/>}
-        {isBasketShow && <BasketList order={order} removeFromBasket={removeFromBasket}/>}
+        {isBasketShow && <BasketList order={order} 
+                                    removeFromBasket={removeFromBasket}
+                                    incQuantity={incQuantity}
+                                    decQuantity={decQuantity}/>}
     </main>
 }
 

@@ -102,7 +102,7 @@ nav {
 }
 
 .basket-delete {
-  cursor: pointer;
+  margin-left: 5px;
 }
 
 @keyframes show {
@@ -125,4 +125,13 @@ nav {
     bottom: 5rem;
     opacity: 1;
   }
+}
+
+.basket_quantity {
+  font-size: 1.1rem;
+  margin: 0px 2px;
+}
+
+.pointer{
+  cursor: pointer;
 }
