@@ -18,7 +18,7 @@ function Shop () {
     }
 
     const addToBasket = (item) => {
-        let itemIndex = order.findIndex(p => p.offerId === item.offerId);
+        let itemIndex = order.findIndex(p => p.id === item.id);
         
         if(itemIndex < 0) {
             setOrder([{...item, quantity: 1}, ...order]);
@@ -32,27 +32,25 @@ function Shop () {
             });
             setOrder(newOrder);
         }
-        setAlertName(item.displayName);
+        setAlertName(item.name);
         
     };
     
     const removeFromBasket = (id) => {
-        const newOrder = order.filter(el => el.offerId !== id);
+        const newOrder = order.filter(el => el.id !== id);
         setOrder(newOrder);
     }
 
     const incQuantity = (itemId) => {
         const newOrder = order.map((el) => {
-            return el.offerId === itemId ? {...el, quantity: el.quantity + 1} : el;
+            return el.id === itemId ? {...el, quantity: el.quantity + 1} : el;
         });
         setOrder(newOrder);
-        console.log("inc");
     };
     const decQuantity = (itemId) => {
         const newOrder = order.map((el) => {
-            return el.offerId === itemId ? {...el, quantity: el.quantity - 1} : el;
+            return el.id === itemId ? {...el, quantity: el.quantity - 1} : el;
         });
-        console.log("dec");
         setOrder(newOrder.filter(el => el.quantity > 0));
     };
 
