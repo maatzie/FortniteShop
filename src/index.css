@@ -135,3 +135,18 @@ nav {
 .pointer{
   cursor: pointer;
 }
+
+#toast-container {
+  top: 3rem !important;
+}
+
+@media (max-width: 767px) {
+  #toast-container {
+    right: 0rem !important;
+    left: 0rem !important;
+  }
+  .toast {
+    width: 80% !important;
+    margin: auto;
+  }
+}
