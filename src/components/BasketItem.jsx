@@ -1,13 +1,15 @@
+import { ShopContext } from "../context";
+import { useContext} from 'react';
+ 
  function BasketItem(props) {
     const {
         id,
         name,
         price, 
         quantity,
-        removeFromBasket = Function.prototype, 
-        incQuantity = Function.prototype,
-        decQuantity = Function.prototype,
     } = props;
+
+    const {removeFromBasket, incQuantity, decQuantity} = useContext(ShopContext);
 
     return <li className="collection-item">
         <span className="right deep-purple-text darken-3 basket-delete pointer" onClick={() => {removeFromBasket(id)}}>

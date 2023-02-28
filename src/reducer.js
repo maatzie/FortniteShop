@@ -1,5 +1,12 @@
 export function reducer(state, {type, payload}) {
     switch (type) {
+        case 'SET_GOODS': {
+            return {
+                ...state,
+                goods: payload || [],
+                loading: false,
+            }
+        }
         case 'CLOSE_ALERT':
             return {
                 ...state,
@@ -8,15 +15,15 @@ export function reducer(state, {type, payload}) {
         case 'REMOVE_FROM_BASKET': 
             return {
                 ...state,
-                order: state.order.filter(el => el.offerId !== payload.id),
+                order: state.order.filter(el => el.id !== payload.id),
             }
         case 'ADD_TO_BASKET':
-            let itemIndex = state.order.findIndex(p => p.id === payload.item.id);
+            let itemIndex = state.order.findIndex(p => p.id === payload.id);
             if(itemIndex < 0) {
                 return {
                     ...state,
-                    order: [{...payload.item, quantity: 1}, ...state.order],
-                    alertName: payload.item.name
+                    order: [{...payload, quantity: 1}, ...state.order],
+                    alertName: payload.name
                 }
             } else {
                 const newOrder = state.order.map((orderItem, index) => {
@@ -29,7 +36,7 @@ export function reducer(state, {type, payload}) {
                 return {
                     ...state,
                     order: newOrder,
-                    alertName: payload.item.name
+                    alertName: payload.name
                 }
             }
 

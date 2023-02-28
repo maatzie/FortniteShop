@@ -144,9 +144,11 @@ nav {
   #toast-container {
     right: 0rem !important;
     left: 0rem !important;
+    height: fit-content;
   }
   .toast {
     width: 80% !important;
     margin: auto;
+    height: fit-content;
   }
 }

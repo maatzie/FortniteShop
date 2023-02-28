@@ -15,7 +15,7 @@ export const ContextProvider = ({children}) => {
     const [value, dispatch] = useReducer(reducer, initialState);
     
     value.closeAlert = () => {
-        dispatch({type: 'CLOSE_ALERT'})
+        dispatch({type: 'CLOSE_ALERT'});
     }
 
     value.removeFromBasket = (itemId) => {
@@ -23,7 +23,7 @@ export const ContextProvider = ({children}) => {
     }
 
     value.addToBasket = (item) => {
-        dispatch({type: 'ADD_TO_BASKET', payload: {item: item}});
+        dispatch({type: 'ADD_TO_BASKET', payload: item});
     }
     
     value.incQuantity = (itemId) => {
@@ -37,6 +37,10 @@ export const ContextProvider = ({children}) => {
 
     value.handleBasketShow = () => {
         dispatch({type: "HANDLE_BASKET_SHOW", payload: {isBasketShow: !value.isBasketShow}})
+    }
+
+    value.setGoods = (data) => {
+        dispatch({type: "SET_GOODS", payload: data});
     }
     
     return <ShopContext.Provider value={value}>
