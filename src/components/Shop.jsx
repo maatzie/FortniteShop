@@ -8,7 +8,7 @@ import { BasketAlert } from "./BasketAlert.jsx";
 import { ShopContext } from "../context";
 
 function Shop () {
-    const {loading, order, isBasketShow, alertName, setGoods} = useContext(ShopContext);
+    const {loading, isBasketShow, alertName, setGoods} = useContext(ShopContext);
 
     useEffect(function getGoods () {
         fetch(API_URL, {
